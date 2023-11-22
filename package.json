@@ -1,0 +1,12 @@
+{
+  "name": "Web-Scrapping",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.12",
+    "fast-csv": "^4.3.6",
+    "request": "^2.88.2",
+    "request-promise": "^4.2.6"
+  }
+}
