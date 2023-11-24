@@ -12,7 +12,7 @@ const {
 const { cities, carModelList, fileName } = require("./constant");
 
 let defaultUrl =
-  "https://www.pakwheels.com/used-cars/search/-/mk_suzuki/md_alto/ct_lahore/ct_karachi/ct_islamabad/ct_rawalpindi/yr_2013_2021/";
+  "https://www.pakwheels.com/used-cars/search/-/mk_suzuki/yr_2013_2021/ct_lahore/ct_karachi/ct_islamabad/ct_rawalpindi/md_wagon-r/";
 
 const data = [];
 
@@ -70,7 +70,6 @@ const createJSONPayload = ($2, index) => {
     Assembly: assembly,
     ["Engine Capacity"]: engineCapacity,
     ["Body Type"]: bodyType,
-    ["S No"]: index + 1
   };
 };
 
@@ -133,28 +132,31 @@ const extractListData = async (url) => {
     const $ = cheerio.load(response);
     const divWithUl = $("div[class*='search-listing'] div:nth-child(2)");
     const promises = [];
-    divWithUl.find("ul").each(function (i, ulElem) {
+    divWithUl.find("ul").each(function (_, ulElem) {
       $(ulElem)
         .find('li[class*="classified-listing"]')
         .each(async function (i, liElem) {
-          const detailsObj = JSON.parse($(liElem).find("script").text());
-          const detailsUrl = detailsObj.offers.url;
-
-          const promise = request(detailsUrl)
-            .then((res) => {
-              const $2 = cheerio.load(res);
-              const payload = createJSONPayload($2, i);
-              data.push(payload);
-            })
-            .catch((err) => {
-              console.log(
-                `Req Failed ${detailsUrl} ${
-                  err?.message || "Something went wrong"
-                }`
-              );
-            });
-
-          promises.push(promise);
+          const scriptTagText = $(liElem).find("script").text()
+          if (scriptTagText) {
+            const detailsObj = JSON.parse(scriptTagText);
+            const detailsUrl = detailsObj.offers.url;
+  
+            const promise = request(detailsUrl)
+              .then((res) => {
+                const $2 = cheerio.load(res);
+                const payload = createJSONPayload($2, i);
+                data.push(payload);
+              })
+              .catch((err) => {
+                console.log(
+                  `Req Failed ${detailsUrl} ${
+                    err?.message || "Something went wrong"
+                  }`
+                );
+              });
+  
+            promises.push(promise);
+          }
         });
     });
     await Promise.all(promises);

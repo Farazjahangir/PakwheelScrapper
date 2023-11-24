@@ -5,7 +5,6 @@ exports. carModelList = [
     'Mehran VX',
     'Mehran VXR',
     'Mehran',
-    'Alto',
     'Alto VXL',
     'Alto VXR',
     'Alto VXL AGS',
@@ -20,7 +19,14 @@ exports. carModelList = [
     'Alto L',
     'Alto G',
     'Alto G4',
-    'Alto works edition'
+    'Alto works edition',
+    'Alto',
+    'Wagon R Hybrid FX',
+    'Wagon R VXL',
+    'Wagon R FX',
+    'Wagon R VXR',
+    'Wagon R AGS',
+    'Wagon R',
 ]
 
 exports. cities = [
