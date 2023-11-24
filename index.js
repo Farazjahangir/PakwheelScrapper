@@ -12,7 +12,7 @@ const {
 const { cities, carModelList, fileName } = require("./constant");
 
 let defaultUrl =
-  "https://www.pakwheels.com/used-cars/search/-/mk_suzuki/md_wagon-r/ct_karachi/yr_2010_2019";
+  "https://www.pakwheels.com/used-cars/search/-/mk_suzuki/md_alto/ct_lahore/ct_karachi/ct_islamabad/ct_rawalpindi/yr_2013_2021/";
 
 const data = [];
 
@@ -24,7 +24,7 @@ const findNextPage = ($) => {
   return $(nextLi).find("a").text();
 };
 
-const createJSONPayload = ($2) => {
+const createJSONPayload = ($2, index) => {
   const name = $2("h1").text();
   const model = extractSpecificValueFromText($2("h1").text(), carModelList);
   const price = $2('div[class="price-box"] > strong').text();
@@ -70,6 +70,7 @@ const createJSONPayload = ($2) => {
     Assembly: assembly,
     ["Engine Capacity"]: engineCapacity,
     ["Body Type"]: bodyType,
+    ["S No"]: index + 1
   };
 };
 
@@ -142,7 +143,7 @@ const extractListData = async (url) => {
           const promise = request(detailsUrl)
             .then((res) => {
               const $2 = cheerio.load(res);
-              const payload = createJSONPayload($2);
+              const payload = createJSONPayload($2, i);
               data.push(payload);
             })
             .catch((err) => {

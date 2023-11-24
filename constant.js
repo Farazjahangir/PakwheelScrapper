@@ -4,7 +4,23 @@ exports. carModelList = [
     'Mehran VXR Euro II',
     'Mehran VX',
     'Mehran VXR',
-    'Mehran'
+    'Mehran',
+    'Alto',
+    'Alto VXL',
+    'Alto VXR',
+    'Alto VXL AGS',
+    'Alto VXR AGS',
+    'Alto E',
+    'Alto ECO-L',
+    'Alto ECO-S',
+    'Alto F',
+    'Alto G',
+    'Alto X',
+    'Alto TURBO RS',
+    'Alto L',
+    'Alto G',
+    'Alto G4',
+    'Alto works edition'
 ]
 
 exports. cities = [
