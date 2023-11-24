@@ -33,6 +33,13 @@ exports. carModelList = [
     'Swift DLX Automatic 1.3 Navigation',
     'Swift DX 1.3',
     'Swift',
+    'Cultus AGS',
+    'Cultus EURO II',
+    'Cultus VXL',
+    'Cultus VXLi',
+    'Cultus VXR',
+    'Cultus VXRi',
+    'Cultus'
 ]
 
 exports. cities = [
