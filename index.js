@@ -12,7 +12,7 @@ const {
 const { cities, carModelList, fileName } = require("./constant");
 
 let defaultUrl =
-  "https://www.pakwheels.com/used-cars/search/-/mk_suzuki/yr_2013_2021/ct_lahore/ct_karachi/ct_islamabad/ct_rawalpindi/md_wagon-r/";
+  "https://www.pakwheels.com/used-cars/search/-/mk_suzuki/md_swift/ct_lahore/ct_karachi/ct_islamabad/ct_rawalpindi/yr_2013_2021/";
 
 const data = [];
 

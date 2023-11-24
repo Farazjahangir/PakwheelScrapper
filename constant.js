@@ -27,6 +27,12 @@ exports. carModelList = [
     'Wagon R VXR',
     'Wagon R AGS',
     'Wagon R',
+    'Swift DLX 1.3',
+    'Swift DLX 1.3 Navigation',
+    'Swift DLX Automatic 1.3',
+    'Swift DLX Automatic 1.3 Navigation',
+    'Swift DX 1.3',
+    'Swift',
 ]
 
 exports. cities = [
