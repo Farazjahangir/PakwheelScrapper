@@ -5,8 +5,9 @@ const csv = require("fast-csv");
 
 const {
   extractNumberFromText,
-  formatPrice,
+  // formatPrice,
   extractSpecificValueFromText,
+  convertCurrencyToNumber
 } = require("./helpers");
 
 const { cities, carModelList, fileName } = require("./constant");
@@ -28,7 +29,7 @@ const createJSONPayload = ($2, index) => {
   const name = $2("h1").text();
   const model = extractSpecificValueFromText($2("h1").text(), carModelList);
   const price = $2('div[class="price-box"] > strong').text();
-  const priceInNumber = formatPrice(
+  const priceInNumber = convertCurrencyToNumber(
     $2('div[class="price-box"] > strong').text()
   );
   const city = extractSpecificValueFromText(
